@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\newcommand{\TF}[2]{%
+	{\if\noexpand{#1}\noexpand{#2} T\else F\fi}
+}%
+
+\newcommand{\TFa}[2]{%
+	{\if#1#2 T\else F\fi}
+}%
+
+
+\begin{document}
+\section{testing}
+\TF{\section}{\title}
+\TFa{\section}{\title}
+
+\typeout{Hi}
+\typeout{word}
+
+\end{document}
