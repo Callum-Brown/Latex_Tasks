@@ -1,0 +1,27 @@
+\documentclass[11pt]{book}
+
+\usepackage{imakeidx}
+\usepackage{hyperref}
+%\usepackage[columnsep=10mm, totoc]{idxlayout}
+
+
+\makeindex[name=nominum, title=nominum, intoc]
+\makeindex[name=rerum, title=rerum, intoc]
+
+
+\begin{document}
+\tableofcontents
+\chapter{Title}
+\label{Title}
+\label{physics}
+Here we mention the name of a famous mathematician, Carl Friedrich 
+Gauss\index[nominum]{Gauss, Carl Friedrich} who is very well known
+for his work in \ref{Title}\index[nominum]{\ref{Title}} and 
+\ref{physics}\index[rerum]{\ref{physics}}
+
+\printindex[rerum]
+\printindex[nominum]
+
+
+
+\end{document}
