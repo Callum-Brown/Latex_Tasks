@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+\usepackage[nonewpage, afterindex]{indextools}
+\usepackage{hyperref}
+\usepackage{lipsum}
+
+\makeindex
+\makeindex[name=ch1]
+
+\makeindex[name=ch2, title=Pages of Reference]
+
+\makeindex[name=ch3, title=Pages of Reference]
+
+
+
+\begin{document}
+\section{Chapter}
+\label{Chp1}
+\printindex[ch1]
+\lipsum[1-5]
+
+\subsection{section}
+\lipsum[15]
+
+\section{Chapter}
+\label{Chp2}
+\printindex[ch2]
+
+\lipsum[4-7]
+
+\section{Chapter}
+\label{Chp3}
+\printindex[ch3]
+\lipsum[1-8]
+Here we mention the name of a famous mathematician, Carl Friedrich 
+Gauss \ref{Chp1} \index[ch1]{Chapter 1} who is very well known
+and physics \ref{Chp1} \index[ch1]{Chapter 1},
+for his work in \ref{Chp2} \index[ch2]{Chapter 2} 
+\ref{Chp2} \index[ch2]{Chapter 2}. \ref{Chp3} \index[ch3]{Chapter 3}
+
+
+
+\end{document}
