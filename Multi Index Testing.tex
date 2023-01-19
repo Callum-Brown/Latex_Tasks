@@ -1,27 +1,51 @@
-\documentclass[11pt]{book}
+\documentclass[11pt]{article}
 
-\usepackage{imakeidx}
+\usepackage[nonewpage, afterindex]{indextools}
 \usepackage{hyperref}
-%\usepackage[columnsep=10mm, totoc]{idxlayout}
+\usepackage{lipsum}
 
+\makeindex[name=ch1]
+\makeindex[name=ch2]
+\makeindex[name=ch3, title=Pages of Reference]
 
-\makeindex[name=nominum, title=nominum, intoc]
-\makeindex[name=rerum, title=rerum, intoc]
+%\renewcommand{\indexname}{\sectioname\ thesection\ Index}
 
+%\preto\endtheindex{\par\nobreak\noindent\hfill$\blacksquare$}
+
+\newcommand{\Refindex}[1]{%
+	Chapter
+	\ref{Chp#1}
+	\index[ch#1]{Chapter #1}
+}%
+
+\newcommand{\PrintnLabel}[1]{%
+	\printindex[ch#1]
+	\label{Chp#1}
+}%
 
 \begin{document}
-\tableofcontents
-\chapter{Title}
-\label{Title}
-\label{physics}
+
+\section{Chapter}
+\PrintnLabel{1}
+%\printindex[ch1]
+%\label{Chp1}
+\lipsum[1-8]
+\section{Chapter}
+\PrintnLabel{2}
+%\printindex[ch2]
+%\label{Chp2}
+\lipsum[9-12]
+\section{Chapter}
+\PrintnLabel{3}
+%printindex[ch3]
+%\label{Chp3}
+\lipsum[13-21]
+
+
+
 Here we mention the name of a famous mathematician, Carl Friedrich 
-Gauss\index[nominum]{Gauss, Carl Friedrich} who is very well known
-for his work in \ref{Title}\index[nominum]{\ref{Title}} and 
-\ref{physics}\index[rerum]{\ref{physics}}
-
-\printindex[rerum]
-\printindex[nominum]
-
-
-
+Gauss  \Refindex{1},  \Refindex{1}
+who is very well known
+for his work  \Refindex{2}
+ \Refindex{3}
 \end{document}
